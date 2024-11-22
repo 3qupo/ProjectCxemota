@@ -1,0 +1,14 @@
+-d C:\iverilog\runner\impl\gwsynthesis\runner.vg
+-p GW1NR-9C-QFN88P-6
+-pn GW1NR-LV9QN88PC6/I5
+-cst C:\iverilog\runner\src\runner.cst
+-cfg C:\iverilog\runner\impl\pnr\device.cfg
+-sdc C:\iverilog\runner\src\runner.sdc
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-correct_hold 1
+-route_maxfan 23
+-global_freq 50.000

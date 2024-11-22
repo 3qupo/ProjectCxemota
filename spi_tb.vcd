@@ -1,0 +1,293 @@
+$date
+	Sun Nov 17 16:39:55 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module spi_tb $end
+$var wire 1 ! ss $end
+$var wire 8 " slave_rx_data [7:0] $end
+$var wire 1 # sclk $end
+$var wire 1 $ mosi $end
+$var wire 1 % miso $end
+$var wire 8 & master_rx_data [7:0] $end
+$var wire 1 ' busy $end
+$var reg 1 ( clk $end
+$var reg 8 ) master_data [7:0] $end
+$var reg 1 * rst $end
+$var reg 1 + start $end
+$scope module master $end
+$var wire 1 ( clk $end
+$var wire 1 * rst $end
+$var wire 1 + start $end
+$var wire 8 , tx_data [7:0] $end
+$var wire 1 % miso $end
+$var parameter 2 - FINISH $end
+$var parameter 2 . IDLE $end
+$var parameter 2 / SETUP $end
+$var parameter 2 0 TRANSMIT $end
+$var reg 3 1 bit_cnt [2:0] $end
+$var reg 1 ' busy $end
+$var reg 1 $ mosi $end
+$var reg 8 2 rx_data [7:0] $end
+$var reg 8 3 rx_shift [7:0] $end
+$var reg 1 # sclk $end
+$var reg 2 4 sclk_cnt [1:0] $end
+$var reg 1 5 sclk_enable $end
+$var reg 1 ! ss $end
+$var reg 2 6 state [1:0] $end
+$var reg 8 7 tx_shift [7:0] $end
+$upscope $end
+$scope module slave $end
+$var wire 1 ( clk $end
+$var wire 1 $ mosi $end
+$var wire 1 * rst $end
+$var wire 1 # sclk $end
+$var wire 1 ! ss $end
+$var reg 3 8 bit_cnt [2:0] $end
+$var reg 1 % miso $end
+$var reg 8 9 rx_data [7:0] $end
+$var reg 8 : rx_shift [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b10 0
+b1 /
+b0 .
+b11 -
+$end
+#0
+$dumpvars
+b0 :
+bx 9
+b0 8
+b0 7
+b0 6
+05
+b0 4
+b0 3
+b0 2
+b0 1
+b0 ,
+0+
+1*
+b0 )
+0(
+0'
+b0 &
+x%
+0$
+0#
+bx "
+1!
+$end
+#5
+1(
+#10
+0(
+#15
+1(
+#20
+0(
+0*
+#25
+1(
+#30
+0(
+#35
+1(
+#40
+0(
+1+
+b10100101 )
+b10100101 ,
+#45
+15
+0!
+b10100101 7
+1'
+b1 6
+1(
+#50
+0(
+0+
+#55
+b1 4
+b10 6
+1$
+1(
+#60
+0(
+#65
+b1 8
+b1 :
+b1 1
+b1001010 7
+1#
+b10 4
+1(
+#70
+0(
+#75
+b11 4
+b0x 3
+1(
+#80
+0(
+#85
+b0xx 3
+b0 4
+1(
+#90
+0(
+#95
+b1 4
+b0xxx 3
+1(
+#100
+0(
+#105
+b0xxxx 3
+0#
+b10 4
+1(
+#110
+0(
+#115
+b11 4
+b10 1
+b10010100 7
+1(
+#120
+0(
+#125
+b11 1
+b101000 7
+b0 4
+1(
+#130
+0(
+#135
+b1 4
+b100 1
+b1010000 7
+1(
+#140
+0(
+#145
+b10 8
+b11 :
+b101 1
+b10100000 7
+1#
+b10 4
+1(
+#150
+0(
+#155
+b11 4
+b0xxxxx 3
+1(
+#160
+0(
+#165
+b0xxxxxx 3
+b0 4
+1(
+#170
+0(
+#175
+b1 4
+b0xxxxxxx 3
+1(
+#180
+0(
+#185
+bx 3
+0#
+b10 4
+1(
+#190
+0(
+#195
+b11 4
+b110 1
+b1000000 7
+1(
+#200
+0(
+#205
+b111 1
+b10000000 7
+b0 4
+1(
+#210
+0(
+#215
+b1 4
+b11 6
+b0 7
+1(
+#220
+0(
+#225
+bx &
+bx 2
+05
+1!
+0'
+b0 6
+1#
+b10 4
+1(
+#230
+0(
+#235
+b0 4
+0#
+1(
+#240
+0(
+#245
+1(
+#250
+0(
+#255
+1(
+#260
+0(
+#265
+1(
+#270
+0(
+#275
+1(
+#280
+0(
+#285
+1(
+#290
+0(
+#295
+1(
+#300
+0(
+#305
+1(
+#310
+0(
+#315
+1(
+#320
+0(
+#325
+1(
+#330
+0(
+#335
+1(

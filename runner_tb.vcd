@@ -1,0 +1,66 @@
+$date
+	Fri Nov 01 12:17:13 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module runner_tb $end
+$var wire 6 ! leds [5:0] $end
+$var reg 8 " buttons [7:0] $end
+$scope module uut $end
+$var wire 8 # buttons [7:0] $end
+$var wire 6 $ leds [5:0] $end
+$var reg 8 % sum [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 %
+b111111 $
+b11111111 #
+b11111111 "
+b111111 !
+$end
+#10
+b111110 !
+b111110 $
+b1 %
+b11111110 "
+b11111110 #
+#20
+b111101 !
+b111101 $
+b10 %
+b11111101 "
+b11111101 #
+#30
+b111010 !
+b111010 $
+b101 %
+b11111001 "
+b11111001 #
+#40
+b110101 !
+b110101 $
+b1010 %
+b11110000 "
+b11110000 #
+#50
+b11011 !
+b11011 $
+b100100 %
+b0 "
+b0 #
+#60
+b111111 !
+b111111 $
+b0 %
+b11111111 "
+b11111111 #
