@@ -1,7 +1,7 @@
-Reading netlist file: "C:\iverilog\runner\impl\gwsynthesis\runner.vg"
-Parsing netlist file "C:\iverilog\runner\impl\gwsynthesis\runner.vg" completed
+Reading netlist file: "C:\iverilog\runnerProject\impl\gwsynthesis\runner.vg"
+Parsing netlist file "C:\iverilog\runnerProject\impl\gwsynthesis\runner.vg" completed
 Processing netlist completed
-Reading constraint file: "C:\iverilog\runner\src\runner.cst"
+Reading constraint file: "C:\iverilog\runnerProject\src\runner.cst"
 Physical Constraint parsed completed
 Running placement......
 [10%] Placement Phase 0 completed
@@ -20,10 +20,10 @@ Bitstream generation in progress......
 Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
-Generate file "C:\iverilog\runner\impl\pnr\runner.power.html" completed
-Generate file "C:\iverilog\runner\impl\pnr\runner.pin.html" completed
-Generate file "C:\iverilog\runner\impl\pnr\runner.rpt.html" completed
-Generate file "C:\iverilog\runner\impl\pnr\runner.rpt.txt" completed
-Generate file "C:\iverilog\runner\impl\pnr\runner.tr.html" completed
-Fri Nov 15 13:14:39 2024
+Generate file "C:\iverilog\runnerProject\impl\pnr\runner.power.html" completed
+Generate file "C:\iverilog\runnerProject\impl\pnr\runner.pin.html" completed
+Generate file "C:\iverilog\runnerProject\impl\pnr\runner.rpt.html" completed
+Generate file "C:\iverilog\runnerProject\impl\pnr\runner.rpt.txt" completed
+Generate file "C:\iverilog\runnerProject\impl\pnr\runner.tr.html" completed
+Tue Dec  3 18:09:45 2024
 

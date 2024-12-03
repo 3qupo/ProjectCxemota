@@ -2,69 +2,81 @@
 // iverilog -o ./compiled ./src/runner.v
 // vvp ./compiled
 
-module runner (
-    input clk,
-    input rst,  // Сброс
-    output reg [7:0] leds,  // Вывод на светодиоды (диагностика)
-    output reg [6:0] seg1, // Первый семисегментник
-    output reg [6:0] seg2, // Второй семисегментник
-    output reg [6:0] seg3  // Третий семисегментник
+module prng_display
+(
+    input wire clk,
+    output wire gnd_1,
+    output wire gnd_2,
+    output wire gnd_3,
+    output wire gnd_4,
+    output reg [7:0] leds
 );
 
-// Генератор случайных чисел (LFSR)
-reg [7:0] lfsr = 8'b10111001; // Инициализация LFSR
-wire feedback = lfsr[7] ^ lfsr[5] ^ lfsr[4] ^ lfsr[3]; // Полином
+// Генератор на основе сдвигового регистра
+reg [15:0] lfsr = 16'h1234;
+reg [31:0] timer = 0;
+wire feedback = lfsr[15] ^ lfsr[14] ^ lfsr[12] ^ lfsr[3];
 
-// Счетчик для разделения тактов
-reg [19:0] clk_div = 0;
-wire slow_clk = clk_div[19]; // Медленный тактовый сигнал
+reg [7:0] segment_patterns [0:9];
+reg [3:0] current_numbers [0:3];
+reg [3:0] display_select = 4'b1110;
+reg [15:0] display_counter = 0;
 
-// Регистр для случайных чисел
-reg [11:0] random_number; // Три цифры случайного числа (по 4 бита каждая)
-
-// Логика отображения числа на семисегментники
-always @(posedge slow_clk or posedge rst) begin
-    if (rst) begin
-        lfsr <= 8'b10111001; // Сброс LFSR
-        random_number <= 12'b0; // Сброс числа
-    end else begin
-        // Обновление LFSR
-        lfsr <= {lfsr[6:0], feedback};
-
-        // Генерация нового случайного числа
-        random_number <= {lfsr[3:0], lfsr[7:4], lfsr[3:0]};
-    end
+initial begin
+    segment_patterns[0] = 8'b11111100;
+    segment_patterns[1] = 8'b01100000;
+    segment_patterns[2] = 8'b11011010;
+    segment_patterns[3] = 8'b11110010;
+    segment_patterns[4] = 8'b01100110;
+    segment_patterns[5] = 8'b10110110;
+    segment_patterns[6] = 8'b10111110;
+    segment_patterns[7] = 8'b11100000;
+    segment_patterns[8] = 8'b11111110;
+    segment_patterns[9] = 8'b11110110;
+    
+    current_numbers[0] = 4'd0;
+    current_numbers[1] = 4'd0;
+    current_numbers[2] = 4'd0;
+    current_numbers[3] = 4'd0;
 end
 
-// Декодер для семисегментников
-always @* begin
-    leds = lfsr; // Для диагностики на светодиодах
+assign gnd_1 = display_select[0];
+assign gnd_2 = display_select[1];
+assign gnd_3 = display_select[2];
+assign gnd_4 = display_select[3];
 
-    seg1 = decode_digit(random_number[3:0]);   // Первая цифра
-    seg2 = decode_digit(random_number[7:4]);   // Вторая цифра
-    seg3 = decode_digit(random_number[11:8]);  // Третья цифра
-end
-
-// Функция декодирования цифр для семисегментника
-function [6:0] decode_digit(input [3:0] digit);
-    case (digit)
-        4'd0: decode_digit = 7'b1000000;
-        4'd1: decode_digit = 7'b1111001;
-        4'd2: decode_digit = 7'b0100100;
-        4'd3: decode_digit = 7'b0110000;
-        4'd4: decode_digit = 7'b0011001;
-        4'd5: decode_digit = 7'b0010010;
-        4'd6: decode_digit = 7'b0000010;
-        4'd7: decode_digit = 7'b1111000;
-        4'd8: decode_digit = 7'b0000000;
-        4'd9: decode_digit = 7'b0010000;
-        default: decode_digit = 7'b1111111; // Пусто
-    endcase
-endfunction
-
-// Делитель частоты
 always @(posedge clk) begin
-    clk_div <= clk_div + 1;
+    // Генерация новых чисел каждые ~3 секунды
+    timer <= timer + 1;
+    if (timer >= 27_000_000 * 3) begin  // При тактовой 27 МГц
+        timer <= 0;
+        lfsr <= {lfsr[14:0], feedback};
+        current_numbers[0] <= lfsr[3:0] % 10;
+        current_numbers[1] <= lfsr[7:4] % 10;
+        current_numbers[2] <= lfsr[11:8] % 10;
+        current_numbers[3] <= lfsr[15:12] % 10;
+    end
+
+    // Мультиплексирование дисплея
+    display_counter <= display_counter + 1;
+    case (display_counter[15:14])
+        2'b00: begin
+            display_select <= 4'b1110;
+            leds <= segment_patterns[current_numbers[0]];
+        end
+        2'b01: begin
+            display_select <= 4'b1101;
+            leds <= segment_patterns[current_numbers[1]];
+        end
+        2'b10: begin
+            display_select <= 4'b1011;
+            leds <= segment_patterns[current_numbers[2]];
+        end
+        2'b11: begin
+            display_select <= 4'b0111;
+            leds <= segment_patterns[current_numbers[3]];
+        end
+    endcase
 end
 
 endmodule

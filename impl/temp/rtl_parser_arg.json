@@ -4,10 +4,6 @@
   {
    "Path" : "C:/iverilog/runnerProject/src/runner.v",
    "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/iverilog/runnerProject/src/runner_lab.v",
-   "Type" : "verilog"
   }
  ],
  "IncludePath" : [
