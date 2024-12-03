@@ -1,56 +1,70 @@
-module runner
-(
- 	input clk,
- 	input [7:0] b,
-    output gnd_1,
- 	output gnd_2,
- 	output [7:0] leds
+// cd C:\iverilog\runnerProject
+// iverilog -o ./compiled ./src/runner.v
+// vvp ./compiled
+
+module runner (
+    input clk,
+    input rst,  // Сброс
+    output reg [7:0] leds,  // Вывод на светодиоды (диагностика)
+    output reg [6:0] seg1, // Первый семисегментник
+    output reg [6:0] seg2, // Второй семисегментник
+    output reg [6:0] seg3  // Третий семисегментник
 );
 
-reg [20:0] counter=~0;
-reg [7:0] counter_1 = 0;
-reg [7:0] im_1 = 8'b00111101;
-reg [7:0] im_2 = 8'b01001011;
-reg [7:0] im = 0;
-reg f = 1;
-reg fi = 1;
-reg pit =0;
+// Генератор случайных чисел (LFSR)
+reg [7:0] lfsr = 8'b10111001; // Инициализация LFSR
+wire feedback = lfsr[7] ^ lfsr[5] ^ lfsr[4] ^ lfsr[3]; // Полином
 
-assign gnd_1 = pit;
-assign gnd_2 = !pit;
-assign leds = ( pit ? im_2 : im_1 );
+// Счетчик для разделения тактов
+reg [19:0] clk_div = 0;
+wire slow_clk = clk_div[19]; // Медленный тактовый сигнал
 
-always @(posedge clk)
-begin
- 	counter <= counter + 1;
- if (!counter)
- 	begin
- if((b[0]+b[1]+b[2]+b[3]+b[4]+b[5]+b[6]+b[7]==7)&&f)
-begin
- f <= 0;
- 			if (!b[7])
- 			begin
-fi <= !fi;
- 			end
-else
- 			begin
-if (fi) im_1 <= im_1^(~b);
-else im_2 <= im_2^(~b);
- 			end
- 			im_1[7] <= fi;
-im_2[7] <= !fi;
- 		end
- 		else f<=1;
- end
- if (counter_1 > 128)
- 	begin
- 		pit <= 0;
- end
- 	else
- 	begin
- 		pit <= 1;
- 	end
-counter_1 <= counter_1 +1;
+// Регистр для случайных чисел
+reg [11:0] random_number; // Три цифры случайного числа (по 4 бита каждая)
+
+// Логика отображения числа на семисегментники
+always @(posedge slow_clk or posedge rst) begin
+    if (rst) begin
+        lfsr <= 8'b10111001; // Сброс LFSR
+        random_number <= 12'b0; // Сброс числа
+    end else begin
+        // Обновление LFSR
+        lfsr <= {lfsr[6:0], feedback};
+
+        // Генерация нового случайного числа
+        random_number <= {lfsr[3:0], lfsr[7:4], lfsr[3:0]};
+    end
+end
+
+// Декодер для семисегментников
+always @* begin
+    leds = lfsr; // Для диагностики на светодиодах
+
+    seg1 = decode_digit(random_number[3:0]);   // Первая цифра
+    seg2 = decode_digit(random_number[7:4]);   // Вторая цифра
+    seg3 = decode_digit(random_number[11:8]);  // Третья цифра
+end
+
+// Функция декодирования цифр для семисегментника
+function [6:0] decode_digit(input [3:0] digit);
+    case (digit)
+        4'd0: decode_digit = 7'b1000000;
+        4'd1: decode_digit = 7'b1111001;
+        4'd2: decode_digit = 7'b0100100;
+        4'd3: decode_digit = 7'b0110000;
+        4'd4: decode_digit = 7'b0011001;
+        4'd5: decode_digit = 7'b0010010;
+        4'd6: decode_digit = 7'b0000010;
+        4'd7: decode_digit = 7'b1111000;
+        4'd8: decode_digit = 7'b0000000;
+        4'd9: decode_digit = 7'b0010000;
+        default: decode_digit = 7'b1111111; // Пусто
+    endcase
+endfunction
+
+// Делитель частоты
+always @(posedge clk) begin
+    clk_div <= clk_div + 1;
 end
 
 endmodule
