@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="random_display" Register="118" Alu="62" Lut="81" Ssram="1" T_Register="118(118)" T_Alu="62(62)" T_Lut="81(81)" T_Ssram="1(1)"/>
+<Module name="random_display" Register="117" Alu="62" Lut="77" Ssram="1" T_Register="117(117)" T_Alu="62(62)" T_Lut="77(77)" T_Ssram="1(1)"/>
