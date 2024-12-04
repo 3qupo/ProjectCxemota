@@ -2,9 +2,9 @@
  {
   "InstFile" : "C:/iverilog/runnerProject/src/runner.v",
   "InstLine" : 5,
-  "InstName" : "prng_display",
+  "InstName" : "random_display",
   "ModuleFile" : "C:/iverilog/runnerProject/src/runner.v",
   "ModuleLine" : 5,
-  "ModuleName" : "prng_display"
+  "ModuleName" : "random_display"
  }
 ]

@@ -1,10 +1,10 @@
 GowinSynthesis start
 Running parser ...
 Analyzing Verilog file 'C:\iverilog\runnerProject\src\runner.v'
-Compiling module 'prng_display'("C:\iverilog\runnerProject\src\runner.v":5)
-Extracting RAM for identifier 'segment_patterns'("C:\iverilog\runnerProject\src\runner.v":20)
-WARN  (EX3791) : Expression size 17 truncated to fit in target size 16("C:\iverilog\runnerProject\src\runner.v":61)
-NOTE  (EX0101) : Current top module is "prng_display"
+Compiling module 'random_display'("C:\iverilog\runnerProject\src\runner.v":5)
+Extracting RAM for identifier 'seven_seg'("C:\iverilog\runnerProject\src\runner.v":31)
+WARN  (EX3791) : Expression size 3 truncated to fit in target size 2("C:\iverilog\runnerProject\src\runner.v":75)
+NOTE  (EX0101) : Current top module is "random_display"
 [5%] Running netlist conversion ...
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed

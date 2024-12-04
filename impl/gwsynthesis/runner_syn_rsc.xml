@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="prng_display" Register="89" Alu="46" Lut="68" T_Register="89(89)" T_Alu="46(46)" T_Lut="68(68)"/>
+<Module name="random_display" Register="118" Alu="62" Lut="81" Ssram="1" T_Register="118(118)" T_Alu="62(62)" T_Lut="81(81)" T_Ssram="1(1)"/>

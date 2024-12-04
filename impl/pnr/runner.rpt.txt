@@ -12,27 +12,27 @@
   <Part Number>: GW1NR-LV9QN88PC6/I5
   <Device>: GW1NR-9
   <Device Version>: C
-  <Created Time>:Tue Dec  3 18:09:45 2024
+  <Created Time>:Wed Dec  4 16:43:50 2024
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.008s, Elapsed time = 0h 0m 0.008s
-    Placement Phase 1: CPU time = 0h 0m 0.063s, Elapsed time = 0h 0m 0.063s
-    Placement Phase 2: CPU time = 0h 0m 0.004s, Elapsed time = 0h 0m 0.004s
-    Placement Phase 3: CPU time = 0h 0m 0.725s, Elapsed time = 0h 0m 0.725s
-    Total Placement: CPU time = 0h 0m 0.8s, Elapsed time = 0h 0m 0.8s
+    Placement Phase 0: CPU time = 0h 0m 0.009s, Elapsed time = 0h 0m 0.009s
+    Placement Phase 1: CPU time = 0h 0m 0.069s, Elapsed time = 0h 0m 0.069s
+    Placement Phase 2: CPU time = 0h 0m 0.009s, Elapsed time = 0h 0m 0.009s
+    Placement Phase 3: CPU time = 0h 0m 0.723s, Elapsed time = 0h 0m 0.724s
+    Total Placement: CPU time = 0h 0m 0.81s, Elapsed time = 0h 0m 0.811s
  Running routing:
     Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Routing Phase 1: CPU time = 0h 0m 0.115s, Elapsed time = 0h 0m 0.114s
-    Routing Phase 2: CPU time = 0h 0m 0.078s, Elapsed time = 0h 0m 0.078s
+    Routing Phase 1: CPU time = 0h 0m 0.101s, Elapsed time = 0h 0m 0.1s
+    Routing Phase 2: CPU time = 0h 0m 0.087s, Elapsed time = 0h 0m 0.087s
     Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Total Routing: CPU time = 0h 0m 0.193s, Elapsed time = 0h 0m 0.192s
+    Total Routing: CPU time = 0h 0m 0.188s, Elapsed time = 0h 0m 0.187s
  Generate output files:
-    CPU time = 0h 0m 0.653s, Elapsed time = 0h 0m 0.653s
+    CPU time = 0h 0m 0.67s, Elapsed time = 0h 0m 0.67s
 
- Total Time and Memory Usage: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s, Peak memory usage = 247MB
+ Total Time and Memory Usage: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s, Peak memory usage = 257MB
 
 
 3. Resource Usage Summary
@@ -40,15 +40,15 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 116/8640  2%
-    --LUT,ALU,ROM16           | 116(68 LUT, 48 ALU, 0 ROM16)
-    --SSRAM(RAM16)            | 0
-  Register                    | 89/6693  2%
+  Logic                       | 151/8640  2%
+    --LUT,ALU,ROM16           | 145(81 LUT, 64 ALU, 0 ROM16)
+    --SSRAM(RAM16)            | 1
+  Register                    | 118/6693  2%
     --Logic Register as Latch | 0/6480  0%
-    --Logic Register as FF    | 78/6480  2%
+    --Logic Register as FF    | 106/6480  2%
     --I/O Register as Latch   | 0/213  0%
-    --I/O Register as FF      | 11/213  6%
-  CLS                         | 70/4320  2%
+    --I/O Register as FF      | 12/213  6%
+  CLS                         | 92/4320  3%
   I/O Port                    | 13
   I/O Buf                     | 13
     --Input Buf               | 1
@@ -110,18 +110,18 @@
 Port Name  | Diff Pair | Loc./Bank     | Constraint | Dir.  | Site     | IO Type    | Drive | Pull Mode | PCI Clamp | Hysteresis | Open Drain | Vref       | Single Resistor | Diff Resistor | BankVccio 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 clk        |           | 52/1          | Y          | in    | IOR17[A] | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8       
-gnd_1      |           | 30/2          | Y          | out   | IOB13[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
-gnd_2      |           | 33/2          | Y          | out   | IOB23[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
-gnd_3      |           | 34/2          | Y          | out   | IOB23[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
-gnd_4      |           | 19/2          | N          | out   | IOB4[A]  | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
-leds[0]    |           | 36/2          | Y          | out   | IOB29[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
-leds[1]    |           | 37/2          | Y          | out   | IOB31[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
-leds[2]    |           | 38/2          | Y          | out   | IOB31[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
-leds[3]    |           | 39/2          | Y          | out   | IOB33[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
+gnd_1      |           | 28/2          | Y          | out   | IOB11[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
+gnd_2      |           | 29/2          | Y          | out   | IOB13[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
+gnd_3      |           | 30/2          | Y          | out   | IOB13[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
+gnd_4      |           | 33/2          | Y          | out   | IOB23[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
+leds[0]    |           | 37/2          | Y          | out   | IOB31[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
+leds[1]    |           | 36/2          | Y          | out   | IOB29[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
+leds[2]    |           | 39/2          | Y          | out   | IOB33[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
+leds[3]    |           | 25/2          | Y          | out   | IOB8[A]  | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
 leds[4]    |           | 26/2          | Y          | out   | IOB8[B]  | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
 leds[5]    |           | 27/2          | Y          | out   | IOB11[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
-leds[6]    |           | 28/2          | Y          | out   | IOB11[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
-leds[7]    |           | 29/2          | Y          | out   | IOB13[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
+leds[6]    |           | 34/2          | Y          | out   | IOB23[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
+leds[7]    |           | 38/2          | Y          | out   | IOB31[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
 ==================================================================================================================================================================================================================
 
 
@@ -156,23 +156,23 @@ Loc./Bank| Signal   | Dir.  | Site     | IO Type  | Drive | Pull Mode | PCI Clam
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 17/2     | -        | in    | IOB2[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 18/2     | -        | in    | IOB2[B]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
-19/2     | gnd_4    | out   | IOB4[A]  | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
+19/2     | -        | in    | IOB4[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 20/2     | -        | in    | IOB4[B]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
-25/2     | -        | in    | IOB8[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
+25/2     | leds[3]  | out   | IOB8[A]  | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
 26/2     | leds[4]  | out   | IOB8[B]  | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
 27/2     | leds[5]  | out   | IOB11[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
-28/2     | leds[6]  | out   | IOB11[B] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
-29/2     | leds[7]  | out   | IOB13[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
-30/2     | gnd_1    | out   | IOB13[B] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
+28/2     | gnd_1    | out   | IOB11[B] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
+29/2     | gnd_2    | out   | IOB13[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
+30/2     | gnd_3    | out   | IOB13[B] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
 31/2     | -        | in    | IOB15[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 32/2     | -        | in    | IOB15[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
-33/2     | gnd_2    | out   | IOB23[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
-34/2     | gnd_3    | out   | IOB23[B] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
+33/2     | gnd_4    | out   | IOB23[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
+34/2     | leds[6]  | out   | IOB23[B] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
 35/2     | -        | in    | IOB29[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
-36/2     | leds[0]  | out   | IOB29[B] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
-37/2     | leds[1]  | out   | IOB31[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
-38/2     | leds[2]  | out   | IOB31[B] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
-39/2     | leds[3]  | out   | IOB33[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
+36/2     | leds[1]  | out   | IOB29[B] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
+37/2     | leds[0]  | out   | IOB31[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
+38/2     | leds[7]  | out   | IOB31[B] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
+39/2     | leds[2]  | out   | IOB33[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
 40/2     | -        | in    | IOB33[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 41/2     | -        | in    | IOB41[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 42/2     | -        | in    | IOB41[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
